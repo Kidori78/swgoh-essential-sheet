@@ -37,7 +37,7 @@ Add the Essential Sheet Library to Apps Script by clicking the + next to _Librar
 Add the Google Sheets API Service to Apps Script by clicking the + next to _Services_. Select v4 and then give it the identifier **SheetsAPI**.
 
 ### STEP 4
-Reload your Google Sheet, you will see the **Essential Sheet Menu** appear in the menu bar. Select **Help** then **Build Settings Sheet**. See STEP 3 in [Getting Started with Essential Sheet](#getting-started-with-essential-sheet) below for further instructions.
+Reload your Google Sheet, you will see the **Essential Sheet Menu** appear in the menu bar. Select **Help** then **Build Settings Sheet**. See [STEP 3 in Getting Started with Essential Sheet](#step-3-1) below for further instructions.
 
 <br />
 
