@@ -286,4 +286,4 @@ Indicates if the data should be added as raw or user_entered. Raw means the data
 Returns the area of the game where the omicron will be in effect.\
 **Parameter:**\
 `mode` Integer | Required\
-The mode id.\
+The mode id.
