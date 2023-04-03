@@ -16,6 +16,8 @@ The SWGoH Essential Sheet is a Google Sheets Library that utilizes Comlink to re
 
 This repo is used to store the library files and information for the SWGoH Essential Sheet. To learn more about Comlink visit the Official Github for the projectat [swgoh-utils/swgoh-comlink](https://github.com/swgoh-utils/swgoh-comlink). For help setting up your own version of Comlink on a hosting service see [swgoh-utils/deploy-swgoh-comlink](https://github.com/swgoh-utils/deploy-swgoh-comlink). For running it locally on your device and storing the data in your own GIthub repo rather than using a hosting service see [comlink-for-github](https://github.com/Kidori78/swgoh-comlink-for-github).
 
+Get additional help and support for this sheet on my discord [Kidori's SWGoH Tools](https://discord.gg/Z3fWRWa77W).
+
 <br />
 
 ## Adding to an existing spreadsheet
@@ -240,9 +242,48 @@ Converts the string language into the accepted games iso format for that languag
 Translates a string to the target language using Googles translation services. There is a 300 translation limit per day.\
 **Parameter:**\
 `message` String | Required\
+The message you want to translate.\
+`targetLanguage` String | Required\
+The language string or iso format to convert it into.
 
- - sortSheets(targetSheet,columns)
- - deleteRows(targetSheet)
- - deleteEntries(targetSheet,players,allyCol,cleanup)
- - appendData(targetSheet, data)
- - getOmicronArea(mode)
+### sortSheets(targetSheet,columns)
+Sort a sheet by the specified columns in ascending order.\
+**Parameter:**\
+`targetSheet` Object | Required\
+The sheet object to sort.\
+`columns` Array of Integers | Required\
+An array that contains each column you wish to sort. Column 1 starts at 0.
+
+### deleteRows(targetSheet)
+Deletes all unused rows on a sheet.\
+**Parameter:**\
+`targetSheet` Object | Required\
+The sheet object.\
+
+### deleteEntries(targetSheet,players,allyCol,cleanup)
+Clears the specified sheet of all data not specified in the columns.\
+**Parameter:**\
+`targetSheet` Object | Required\
+The sheet object.\
+`players` Array | Required\
+The array of ids or other unique identifiers to get rid of a sheet. If cleanup is enabled this indicates the data to keep.\
+`allyCol` Integer | Required\
+The column the ally code for players can be found in. Can also indicate the column the unique identifier is found in.\
+`cleanup` Boolean | Optional\
+Specifies that the players array indicates the only values to keep on the sheet.
+
+### appendData(targetSheet, data, raw)
+Uses the Google Sheets API to add data to the end of a sheet. Allows for adding lots of data quickly and with a lower chance of it freezing the Google Sheet.\
+**Parameter:**\
+`targetSheet` Object | Required\
+The sheet object to write to.\
+`data` Array | Required\
+The array of data to add to the sheet.\
+`raw` Boolean | Optional\
+Indicates if the data should be added as raw or user_entered. Raw means the data is added as strings only and no sheet calculations or guesses will be made for each cell to see what format it is. When false this will add data as if the user entered it on the sheet and Google attempts to determine if it is a function, number, date, etc. Default is true to always use raw.
+
+### getOmicronArea(mode)
+Returns the area of the game where the omicron will be in effect.\
+**Parameter:**\
+`mode` Integer | Required\
+The mode id.\
